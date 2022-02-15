@@ -11,13 +11,16 @@ export class ChooseComponent implements OnInit {
 
   src = "";
   mon = 1;
+  max = 905;
   smashed = new Array();
   passed = new Array();
+  showGens = true;
   showChoose = false;
   showResults = false;
 
   ngOnInit() {
-    this.showChoose = true;
+    this.showGens = true;
+    this.showChoose = false;
     this.showResults = false;
     this.src = this.nextMon(this.mon);
   }
@@ -38,7 +41,7 @@ export class ChooseComponent implements OnInit {
 
   smash() {
     this.smashed.push(this.nextMon(this.mon));
-    if (this.mon == 905) {
+    if (this.mon == this.max) {
       this.thatsAll();
     }
     else {
@@ -49,7 +52,7 @@ export class ChooseComponent implements OnInit {
 
   pass() {
     this.passed.push(this.mon);
-    if (this.mon == 905) {
+    if (this.mon == this.max) {
       this.thatsAll();
     }
     else {
@@ -61,5 +64,16 @@ export class ChooseComponent implements OnInit {
   thatsAll() {
     this.showChoose = false;
     this.showResults = true;
+  }
+
+  chooseGen(start: number, end: number){
+    this.mon = start;
+    if(this.mon != 1){
+      this.src = this.nextMon(this.mon);
+    }
+    this.max = end;
+    this.showGens = false;
+    this.showChoose = true;
+    this.showResults = false;
   }
 }

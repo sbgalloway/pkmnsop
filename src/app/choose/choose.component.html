@@ -1,3 +1,21 @@
+<div *ngIf="showGens">
+    <h1 style="text-align: center; ">Choose a gen: </h1>
+    <br/>
+    <section>
+        <div id="buttons " class="example-button-row ">
+            <button mat-raised-button (click)="chooseGen(1, 151) " type="button ">Kanto (001-151)</button>
+            <button mat-raised-button (click)="chooseGen(152, 251) " type="button ">Johto (152-251)</button>
+            <button mat-raised-button (click)="chooseGen(252, 386) " type="button ">Hoenn (252-386)</button>
+            <button mat-raised-button (click)="chooseGen(387, 493) " type="button ">Sinnoh (387-493)</button>
+            <button mat-raised-button (click)="chooseGen(494, 649) " type="button ">Unova (494-649)</button>
+            <button mat-raised-button (click)="chooseGen(650, 721) " type="button ">Kalos (650-721)</button>
+            <button mat-raised-button (click)="chooseGen(722, 809) " type="button ">Alola (722-809)</button>
+            <button mat-raised-button (click)="chooseGen(810, 898) " type="button ">Galar (810-898)</button>
+            <button mat-raised-button (click)="chooseGen(1, 905) " type="button ">All</button>
+        </div>
+    </section>
+</div>
+
 <div *ngIf="showChoose">
     <h1 style="text-align: center; ">Smash or Pass?</h1>
     <img src={{src}} class="center ">
