@@ -8,41 +8,58 @@ import { Component, OnInit } from '@angular/core';
 export class ChooseComponent implements OnInit {
 
   constructor() { }
-  
+
   src = "";
   mon = 1;
   smashed = new Array();
   passed = new Array();
+  showChoose = false;
+  showResults = false;
 
   ngOnInit() {
-    this.nextMon();
+    this.showChoose = true;
+    this.showResults = false;
+    this.src = this.nextMon(this.mon);
   }
 
-  nextMon(){
+  nextMon(guy: string | number) {
     if (this.mon < 100) {
       if (this.mon < 10) {
-        this.src = "https://www.serebii.net/pokemon/art/00" + this.mon + ".png"
+        return "https://www.serebii.net/pokemon/art/00" + guy + ".png"
       }
       else {
-        this.src = "https://www.serebii.net/pokemon/art/0" + this.mon + ".png"
+        return "https://www.serebii.net/pokemon/art/0" + guy + ".png"
       }
     }
     else {
-      this.src = "https://www.serebii.net/pokemon/art/" + this.mon + ".png"
+      return "https://www.serebii.net/pokemon/art/" + guy + ".png"
     }
   }
 
-  smash(){
-    console.log("smash");
-    this.smashed.push(this.mon);
-    this.mon++;
-    this.nextMon();
+  smash() {
+    this.smashed.push(this.nextMon(this.mon));
+    if (this.mon == 905) {
+      this.thatsAll();
+    }
+    else {
+      this.mon++;
+      this.src = this.nextMon(this.mon);
+    }
   }
 
-  pass(){
-    console.log("pass");
+  pass() {
     this.passed.push(this.mon);
-    this.mon++;
-    this.nextMon();
+    if (this.mon == 905) {
+      this.thatsAll();
+    }
+    else {
+      this.mon++;
+      this.src = this.nextMon(this.mon);
+    }
+  }
+
+  thatsAll() {
+    this.showChoose = false;
+    this.showResults = true;
   }
 }

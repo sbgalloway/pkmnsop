@@ -1,9 +1,18 @@
-<h1 style="text-align: center;">Smash or Pass?</h1>
-<img src={{src}} class="center">
-<br/>
-<section>
-    <div id="buttons" class="example-button-row">
-        <button mat-raised-button (click)="smash()" type="button">Smash</button>
-        <button mat-raised-button (click)="pass()" type="button">Pass</button>
+<div *ngIf="showChoose">
+    <h1 style="text-align: center; ">Smash or Pass?</h1>
+    <img src={{src}} class="center ">
+    <br/>
+    <section>
+        <div id="buttons " class="example-button-row ">
+            <button mat-raised-button (click)="smash() " type="button ">Smash</button>
+            <button mat-raised-button (click)="pass() " type="button ">Pass</button>
+        </div>
+    </section>
+</div>
+<div *ngIf="showResults">
+    <h1 style="text-align: center; ">You would smash:</h1>
+    <br/>
+    <div *ngFor="let x of smashed">
+        <img src='{{x}}' class="results">
     </div>
-</section>
+</div>
