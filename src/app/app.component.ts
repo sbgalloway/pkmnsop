@@ -1,4 +1,6 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { ChooseComponent } from './choose/choose.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pkmnsop';
+  title = 'Pokemon';
 }

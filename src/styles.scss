@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+html {
+    background-color: #444444;
+}
+
+h1 {
+    color: #FFFFFF;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.example-button-row {
+    display: table-cell;
+    width: 490px;
+}
+
+.example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+section {
+    text-align: center;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
